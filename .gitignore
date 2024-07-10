@@ -1,0 +1,21 @@
+# Packer
+packer_cache
+output
+dist
+build
+.bundle
+*.pkrvars.hcl
+*.auto.pkrvars.hcl
+
+!sample.pkrvars.hcl
+
+# Vagrant
+.vagrant
+vagrant-scripts
+
+# VS Code
+.vscode
+
+# Custom
+.ssh/
+project-management/
