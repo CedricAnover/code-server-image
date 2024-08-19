@@ -6,7 +6,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "source", autostart: false do |source|
     source.vm.box = "{{.SourceBox}}"
-    #source.vm.box_version = "<= 202401.31.0, >= 0"
     config.ssh.insert_key = {{.InsertKey}}
   end
 
@@ -20,8 +19,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     # vb.name = "code-server-vm"
-    vb.gui = true
-    vb.memory = "8000"
+    vb.gui = false
+    vb.memory = "4000"
     vb.cpus = 2
 
     # Enable nested virtualization for Sysbox and Docker

@@ -1,0 +1,4 @@
+new_user = "testuser"
+new_user_password = "testpass"
+new_vagrant_password = "testpass"
+box_artifact_version = "0.1.0"
