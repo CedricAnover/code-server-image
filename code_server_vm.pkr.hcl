@@ -43,6 +43,10 @@ variable "box_artifact_version" {
   type = string
 }
 
+variable "coder_version" {
+  type = string
+}
+
 
 source "vagrant" "base-code-server" {
   # ========================== Build Configs
@@ -90,6 +94,12 @@ build {
     script           = "scripts/setup_sysbox.sh"
     // execute_command  = "{{ .Path }} ${var.sysbox_version} ${var.new_user}"
     execute_command  = "sudo -u '${var.new_user}' -i sh -c '{{ .Path }} ${var.sysbox_version}'"
+  }
+
+  # Install Code Server
+  provisioner "shell" {
+    script           = "scripts/install_code_server.sh"
+    execute_command  = "sudo -u '${var.new_user}' -i sh -c '{{ .Path }} ${var.coder_version}'"
   }
 
   # ========================== Post-Processing
